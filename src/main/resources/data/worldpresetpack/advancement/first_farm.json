@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": { "id": "minecraft:bread" },
+    "title": { "translate": "advancement.worldpresetpack.first_farm.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_farm.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "worldpresetpack:root",
+  "criteria": {
+    "harvest_wheat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": "minecraft:wheat", "count": { "min": 8 } }]
+      }
+    }
+  }
+}

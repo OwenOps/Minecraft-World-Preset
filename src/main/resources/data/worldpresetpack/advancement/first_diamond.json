@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": { "id": "minecraft:diamond" },
+    "title": { "translate": "advancement.worldpresetpack.first_diamond.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_diamond.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "worldpresetpack:enter_nether",
+  "criteria": {
+    "get_diamond": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": "minecraft:diamond" }]
+      }
+    }
+  }
+}

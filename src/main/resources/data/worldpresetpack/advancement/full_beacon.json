@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": { "id": "minecraft:beacon" },
+    "title": { "translate": "advancement.worldpresetpack.full_beacon.title" },
+    "description": { "translate": "advancement.worldpresetpack.full_beacon.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "worldpresetpack:first_diamond",
+  "criteria": {
+    "full_beacon": {
+      "trigger": "minecraft:construct_beacon",
+      "conditions": {
+        "level": { "min": 4 }
+      }
+    }
+  },
+  "rewards": { "experience": 100 }
+}

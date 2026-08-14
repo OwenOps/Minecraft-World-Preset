@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.worldpresetpack.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+  "CreateWorldScreenMixin",
+  "WorldCreationUiStateMixin",
+  "accessor.CreateWorldScreenAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}

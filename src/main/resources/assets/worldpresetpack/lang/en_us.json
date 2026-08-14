@@ -1,0 +1,46 @@
+{
+  "generator.worldpresetpack.skyblock": "Skyblock",
+
+  "worldpresetpack.tab.presets": "Presets",
+
+  "worldpresetpack.structures": "Structures",
+  "worldpresetpack.structures.on": "ON",
+  "worldpresetpack.structures.off": "OFF",
+
+  "worldpresetpack.biome": "Biome",
+  "worldpresetpack.biome.void": "The Void",
+  "worldpresetpack.biome.standard": "Standard",
+
+  "worldpresetpack.config.title": "Skyblock Configuration",
+  "worldpresetpack.config.button": "⚙ Configure Skyblock",
+
+  "advancement.worldpresetpack.root.title": "World Preset Pack",
+  "advancement.worldpresetpack.root.desc": "Start your Skyblock adventure!",
+
+  "advancement.worldpresetpack.cobblestone_start.title": "Stone Age... Again",
+  "advancement.worldpresetpack.cobblestone_start.desc": "Collect 64 cobblestone using your generator",
+
+  "advancement.worldpresetpack.first_iron.title": "First Iron",
+  "advancement.worldpresetpack.first_iron.desc": "Smelt your first iron ingot",
+
+  "advancement.worldpresetpack.first_farm.title": "Sky Farmer",
+  "advancement.worldpresetpack.first_farm.desc": "Harvest 8 wheat from your island farm",
+
+  "advancement.worldpresetpack.first_kill.title": "Sky Warrior",
+  "advancement.worldpresetpack.first_kill.desc": "Kill your first mob — don't fall off!",
+
+  "advancement.worldpresetpack.enter_nether.title": "Beyond the Void",
+  "advancement.worldpresetpack.enter_nether.desc": "Enter the Nether with your obsidian and flint & steel",
+
+  "advancement.worldpresetpack.kill_blaze.title": "Blaze It",
+  "advancement.worldpresetpack.kill_blaze.desc": "Kill a Blaze and collect its rod",
+
+  "advancement.worldpresetpack.first_diamond.title": "Sky's the Limit",
+  "advancement.worldpresetpack.first_diamond.desc": "Obtain a diamond — the hard way",
+
+  "advancement.worldpresetpack.full_beacon.title": "Sky Beacon",
+  "advancement.worldpresetpack.full_beacon.desc": "Build a full level-4 beacon on your island",
+
+  "advancements.worldpresetpack.root.title": "World Preset Pack",
+  "advancements.worldpresetpack.root.description": "Start your Skyblock adventure!"
+}
