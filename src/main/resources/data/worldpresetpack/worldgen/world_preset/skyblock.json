@@ -9,7 +9,8 @@
           "preset": "minecraft:overworld"
         },
         "settings": "minecraft:overworld",
-        "generate_structures": false
+        "generate_structures": false,
+        "difficulty": "classic"
       }
     },
     "minecraft:the_nether": {
@@ -21,7 +22,8 @@
           "preset": "minecraft:nether"
         },
         "settings": "minecraft:nether",
-        "generate_structures": false
+        "generate_structures": false,
+        "difficulty": "classic"
       }
     },
     "minecraft:the_end": {

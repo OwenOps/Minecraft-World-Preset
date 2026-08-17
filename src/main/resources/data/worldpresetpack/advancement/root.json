@@ -3,7 +3,7 @@
     "icon": { "id": "minecraft:grass_block" },
     "title": { "translate": "advancement.worldpresetpack.root.title" },
     "description": { "translate": "advancement.worldpresetpack.root.desc" },
-    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "background": "minecraft:gui/advancements/backgrounds/stone",
     "show_toast": false,
     "announce_to_chat": false,
     "hidden": true
@@ -12,5 +12,6 @@
     "entered_world": {
       "trigger": "minecraft:tick"
     }
-  }
+  },
+  "requirements": [["entered_world"]]
 }

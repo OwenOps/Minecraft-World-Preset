@@ -3,6 +3,7 @@ package com.worldpresetpack.worldgen;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.worldpresetpack.config.SkyblockConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -35,20 +36,25 @@ public class VoidChunkGenerator extends ChunkGenerator {
             instance.group(
                     BiomeSource.CODEC.fieldOf("biome_source").forGetter(ChunkGenerator::getBiomeSource),
                     NoiseGeneratorSettings.CODEC.fieldOf("settings").forGetter(g -> g.noiseSettings),
-                    Codec.BOOL.fieldOf("generate_structures").orElse(false).forGetter(g -> g.generateStructures)
+                    Codec.BOOL.fieldOf("generate_structures").orElse(false).forGetter(g -> g.generateStructures),
+                    SkyblockConfig.Difficulty.CODEC.optionalFieldOf("difficulty", SkyblockConfig.Difficulty.CLASSIC)
+                            .forGetter(g -> g.difficulty)
             ).apply(instance, VoidChunkGenerator::new)
     );
 
     /** Noise settings exposed so ChunkMap can build a proper RandomState + Climate.Sampler. */
     private final Holder<NoiseGeneratorSettings> noiseSettings;
     private final boolean generateStructures;
+    private final SkyblockConfig.Difficulty difficulty;
 
     public VoidChunkGenerator(BiomeSource biomeSource,
                                Holder<NoiseGeneratorSettings> noiseSettings,
-                               boolean generateStructures) {
+                               boolean generateStructures,
+                               SkyblockConfig.Difficulty difficulty) {
         super(biomeSource);
         this.noiseSettings = noiseSettings;
         this.generateStructures = generateStructures;
+        this.difficulty = difficulty;
     }
 
     /** Mirrors NoiseBasedChunkGenerator.generatorSettings() so ChunkMap can use real noise. */
@@ -135,6 +141,10 @@ public class VoidChunkGenerator extends ChunkGenerator {
 
     public boolean isGenerateStructures() {
         return generateStructures;
+    }
+
+    public SkyblockConfig.Difficulty difficulty() {
+        return difficulty;
     }
 }
 

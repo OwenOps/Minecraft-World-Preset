@@ -1,6 +1,7 @@
 package com.worldpresetpack.registry;
 
 import com.worldpresetpack.WorldPresetPackMod;
+import com.worldpresetpack.worldgen.SkyblockBiomeSource;
 import com.worldpresetpack.worldgen.VoidChunkGenerator;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -27,6 +28,11 @@ public final class ModWorldPresets {
                 BuiltInRegistries.CHUNK_GENERATOR,
                 Identifier.fromNamespaceAndPath("worldpresetpack", "void"),
                 VoidChunkGenerator.CODEC
+        );
+        Registry.register(
+                BuiltInRegistries.BIOME_SOURCE,
+                Identifier.fromNamespaceAndPath("worldpresetpack", "spawn_biome"),
+                SkyblockBiomeSource.CODEC
         );
         WorldPresetPackMod.LOGGER.info("[WorldPresetPack] VoidChunkGenerator registered (id: worldpresetpack:void)");
         WorldPresetPackMod.LOGGER.info("[WorldPresetPack] Skyblock world preset key registered: {}", SKYBLOCK.identifier());

@@ -17,6 +17,6 @@ public abstract class WorldCreationUiStateMixin {
         if (!entry.preset().is(ModWorldPresets.SKYBLOCK)) return;
 
         SkyblockConfig.reset();
-        BiomeModeApplier.apply((WorldCreationUiState) (Object) this, SkyblockConfig.biomeMode);
+        BiomeModeApplier.apply((WorldCreationUiState) (Object) this);
     }
 }

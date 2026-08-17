@@ -1,0 +1,17 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:red_bed" },
+    "title": { "translate": "advancement.worldpresetpack.first_bed.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_bed.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "slept": {
+      "trigger": "minecraft:slept_in_bed"
+    }
+  },
+  "requirements": [["slept"]]
+}

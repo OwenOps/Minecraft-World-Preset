@@ -7,9 +7,26 @@
   "worldpresetpack.structures.on": "ON",
   "worldpresetpack.structures.off": "OFF",
 
-  "worldpresetpack.biome": "Biome",
+  "worldpresetpack.biome": "Spawn biome",
   "worldpresetpack.biome.void": "The Void",
-  "worldpresetpack.biome.standard": "Standard",
+  "worldpresetpack.biome.vanilla": "From seed",
+  "worldpresetpack.biome.standard": "Vanilla mix",
+
+  "worldpresetpack.difficulty": "Difficulty",
+  "worldpresetpack.difficulty.easy": "Easy",
+  "worldpresetpack.difficulty.classic": "Classic",
+  "worldpresetpack.difficulty.hard": "Hard",
+  "worldpresetpack.difficulty.easy.desc": "A larger island and a bit more starter loot. Still Skyblock — no free iron or cobble.",
+  "worldpresetpack.difficulty.classic.desc": "The original island and chest. The intended Skyblock start.",
+  "worldpresetpack.difficulty.hard.desc": "A tight island and a sparse chest: buckets, ice, one sugar cane, and obsidian.",
+
+  "worldpresetpack.structures.on.desc": "Overworld and Nether structures spawn, farther apart than vanilla. The End is unchanged.",
+  "worldpresetpack.structures.off.desc": "No Overworld or Nether structures. Villages, fortresses, and loot must wait for traders — or stay locked.",
+
+  "worldpresetpack.biome.void.desc": "Every Overworld biome is The Void. Structures cannot generate.",
+  "worldpresetpack.biome.vanilla.desc": "Vanilla Overworld biomes. Your island climate follows the world seed.",
+  "worldpresetpack.biome.standard.desc": "Vanilla Overworld biomes. Your island climate follows the world seed.",
+  "worldpresetpack.biome.fixed.desc": "The island starts in this biome (weather and mobs). Farther out, the Overworld is still the vanilla mix. The Nether is unchanged.",
 
   "worldpresetpack.config.title": "Skyblock Configuration",
   "worldpresetpack.config.button": "⚙ Configure Skyblock",
@@ -40,6 +57,27 @@
 
   "advancement.worldpresetpack.full_beacon.title": "Sky Beacon",
   "advancement.worldpresetpack.full_beacon.desc": "Build a full level-4 beacon on your island",
+
+  "advancement.worldpresetpack.first_bed.title": "A Place to Rest",
+  "advancement.worldpresetpack.first_bed.desc": "Sleep in a bed so the void does not reset your spawn",
+
+  "advancement.worldpresetpack.first_trade.title": "Let's Make a Deal",
+  "advancement.worldpresetpack.first_trade.desc": "Trade with a villager or a wandering trader",
+
+  "advancement.worldpresetpack.first_gold.title": "Piglin Business",
+  "advancement.worldpresetpack.first_gold.desc": "Obtain a gold ingot in the Nether",
+
+  "advancement.worldpresetpack.enchanted.title": "Magic in the Sky",
+  "advancement.worldpresetpack.enchanted.desc": "Enchant an item at an enchanting table",
+
+  "advancement.worldpresetpack.enter_end.title": "The Last Void",
+  "advancement.worldpresetpack.enter_end.desc": "Find the stronghold and enter the End",
+
+  "advancement.worldpresetpack.kill_dragon.title": "Free Fall",
+  "advancement.worldpresetpack.kill_dragon.desc": "Kill the Ender Dragon",
+
+  "advancement.worldpresetpack.elytra.title": "Wings of the Void",
+  "advancement.worldpresetpack.elytra.desc": "Find elytra in an End city ship",
 
   "advancements.worldpresetpack.root.title": "World Preset Pack",
   "advancements.worldpresetpack.root.description": "Start your Skyblock adventure!"

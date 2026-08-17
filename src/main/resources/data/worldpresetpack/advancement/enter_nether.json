@@ -1,13 +1,13 @@
 {
+  "parent": "worldpresetpack:cobblestone_start",
   "display": {
-    "icon": { "id": "minecraft:nether_portal" },
+    "icon": { "id": "minecraft:obsidian" },
     "title": { "translate": "advancement.worldpresetpack.enter_nether.title" },
     "description": { "translate": "advancement.worldpresetpack.enter_nether.desc" },
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "worldpresetpack:first_iron",
   "criteria": {
     "enter_nether": {
       "trigger": "minecraft:changed_dimension",
@@ -15,5 +15,6 @@
         "to": "minecraft:the_nether"
       }
     }
-  }
+  },
+  "requirements": [["enter_nether"]]
 }

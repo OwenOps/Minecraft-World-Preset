@@ -1,4 +1,5 @@
 {
+  "parent": "worldpresetpack:cobblestone_start",
   "display": {
     "icon": { "id": "minecraft:beacon" },
     "title": { "translate": "advancement.worldpresetpack.full_beacon.title" },
@@ -7,14 +8,14 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "worldpresetpack:first_diamond",
   "criteria": {
     "full_beacon": {
       "trigger": "minecraft:construct_beacon",
       "conditions": {
-        "level": { "min": 4 }
+        "level": 4
       }
     }
   },
+  "requirements": [["full_beacon"]],
   "rewards": { "experience": 100 }
 }

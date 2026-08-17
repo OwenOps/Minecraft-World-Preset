@@ -1,4 +1,5 @@
 {
+  "parent": "worldpresetpack:cobblestone_start",
   "display": {
     "icon": { "id": "minecraft:iron_ingot" },
     "title": { "translate": "advancement.worldpresetpack.first_iron.title" },
@@ -7,7 +8,6 @@
     "show_toast": true,
     "announce_to_chat": true
   },
-  "parent": "worldpresetpack:cobblestone_start",
   "criteria": {
     "get_iron": {
       "trigger": "minecraft:inventory_changed",
@@ -15,5 +15,6 @@
         "items": [{ "items": "minecraft:iron_ingot" }]
       }
     }
-  }
+  },
+  "requirements": [["get_iron"]]
 }
