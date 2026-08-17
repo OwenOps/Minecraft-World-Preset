@@ -1,8 +1,7 @@
 package com.worldpresetpack.client.mixin;
 
-import com.worldpresetpack.client.gui.SkyblockConfigScreen;
+import com.worldpresetpack.client.gui.PresetConfigUi;
 import com.worldpresetpack.client.mixin.accessor.CreateWorldScreenAccessor;
-import com.worldpresetpack.registry.ModWorldPresets;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -30,11 +29,10 @@ public abstract class CreateWorldScreenMixin extends Screen {
         CreateWorldScreen self = (CreateWorldScreen) (Object) this;
         worldpresetpack$uiState = ((CreateWorldScreenAccessor) self).worldpresetpack$getUiState();
 
-        // "Configure Skyblock" button — bottom center, above Create button
         worldpresetpack$configButton = Button.builder(
-                Component.translatable("worldpresetpack.config.button"),
+                PresetConfigUi.buttonLabel(worldpresetpack$uiState.getWorldType()),
                 btn -> Minecraft.getInstance().setScreenAndShow(
-                        new SkyblockConfigScreen(self, worldpresetpack$uiState))
+                        PresetConfigUi.open(self, worldpresetpack$uiState))
         ).bounds(self.width / 2 - 75, self.height - 72, 150, 20).build();
 
         addRenderableWidget(worldpresetpack$configButton);
@@ -45,8 +43,11 @@ public abstract class CreateWorldScreenMixin extends Screen {
     @Unique
     private void worldpresetpack$updateVisibility(WorldCreationUiState state) {
         if (worldpresetpack$configButton != null) {
-            worldpresetpack$configButton.visible =
-                    state.getWorldType().preset().is(ModWorldPresets.SKYBLOCK);
+            boolean visible = PresetConfigUi.isConfigurable(state.getWorldType());
+            worldpresetpack$configButton.visible = visible;
+            if (visible) {
+                worldpresetpack$configButton.setMessage(PresetConfigUi.buttonLabel(state.getWorldType()));
+            }
         }
     }
 }

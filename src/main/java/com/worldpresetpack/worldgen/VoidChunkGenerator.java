@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.Level;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.StructureManager;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.ChunkGeneratorStructureState;
@@ -22,10 +22,12 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.RandomState;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.structure.StructureSet;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Stream;
 
 public class VoidChunkGenerator extends ChunkGenerator {
 
@@ -33,7 +35,7 @@ public class VoidChunkGenerator extends ChunkGenerator {
             instance.group(
                     BiomeSource.CODEC.fieldOf("biome_source").forGetter(ChunkGenerator::getBiomeSource),
                     NoiseGeneratorSettings.CODEC.fieldOf("settings").forGetter(g -> g.noiseSettings),
-                    Codec.BOOL.fieldOf("generate_structures").orElse(true).forGetter(g -> g.generateStructures)
+                    Codec.BOOL.fieldOf("generate_structures").orElse(false).forGetter(g -> g.generateStructures)
             ).apply(instance, VoidChunkGenerator::new)
     );
 
@@ -104,6 +106,16 @@ public class VoidChunkGenerator extends ChunkGenerator {
     // Structures start spawning at least this many chunks away from origin (spawn island).
     // 20 chunks = 320 blocks — enough to not see any structure from spawn.
     private static final int SPAWN_EXCLUSION_CHUNKS = 20;
+
+    @Override
+    public ChunkGeneratorStructureState createState(
+            HolderLookup<StructureSet> structureSets, RandomState randomState, long seed) {
+        if (!generateStructures) {
+            return ChunkGeneratorStructureState.createForFlat(
+                    randomState, seed, getBiomeSource(), Stream.empty());
+        }
+        return SkyblockStructureRarity.createState(structureSets, randomState, seed, getBiomeSource());
+    }
 
     @Override
     public void createStructures(net.minecraft.core.RegistryAccess registryAccess,

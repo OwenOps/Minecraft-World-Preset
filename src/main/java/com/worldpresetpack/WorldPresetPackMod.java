@@ -1,5 +1,6 @@
 package com.worldpresetpack;
 
+import com.worldpresetpack.advancement.SkyblockAdvancements;
 import com.worldpresetpack.registry.ModWorldPresets;
 import com.worldpresetpack.worldgen.SkyblockSpawnPlatform;
 import net.fabricmc.api.ModInitializer;
@@ -15,6 +16,7 @@ public class WorldPresetPackMod implements ModInitializer {
     public void onInitialize() {
         ModWorldPresets.register();
         SkyblockSpawnPlatform.register();
+        SkyblockAdvancements.register();
         LOGGER.info("WorldPresetPack initialized");
     }
 }

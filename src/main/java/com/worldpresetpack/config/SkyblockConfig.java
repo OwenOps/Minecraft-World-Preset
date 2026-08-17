@@ -10,25 +10,22 @@ public final class SkyblockConfig {
     private SkyblockConfig() {}
 
     public enum BiomeMode {
-        /** Utilise uniquement le biome minecraft:the_void */
+        /** Using all the biomes */
+        STANDARD,
+
+        /** Using only minecraft:the_void */
         VOID,
-        /** Utilise les biomes standard du générateur vanilla */
-        STANDARD
     }
 
-    /** Génération des structures dans l'Overworld */
-    public static boolean generateStructures = true;
+    /** Structures in Overworld and Nether. Off by default, like classic Skyblock. */
+    public static boolean generateStructures = false;
 
     /** Mode biome pour l'Overworld */
-    public static BiomeMode biomeMode = BiomeMode.VOID;
-
-    /** Génération des structures dans le Nether */
-    public static boolean netherStructures = false;
+    public static BiomeMode biomeMode = BiomeMode.STANDARD;
 
     /** Remet toutes les options à leurs valeurs par défaut. */
     public static void reset() {
-        generateStructures = true;
-        biomeMode = BiomeMode.VOID;
-        netherStructures = false;
+        generateStructures = false;
+        biomeMode = BiomeMode.STANDARD;
     }
 }

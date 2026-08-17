@@ -5,7 +5,8 @@
     "description": { "translate": "advancement.worldpresetpack.root.desc" },
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
     "show_toast": false,
-    "announce_to_chat": false
+    "announce_to_chat": false,
+    "hidden": true
   },
   "criteria": {
     "entered_world": {

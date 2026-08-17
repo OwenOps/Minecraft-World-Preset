@@ -43,6 +43,7 @@ public class SkyblockConfigScreen extends Screen {
                             SkyblockConfig.generateStructures = value;
                             BiomeModeApplier.apply(uiState, SkyblockConfig.biomeMode);
                         });
+        structuresButton.active = SkyblockConfig.biomeMode == SkyblockConfig.BiomeMode.STANDARD;
         addRenderableWidget(structuresButton);
 
         CycleButton<SkyblockConfig.BiomeMode> biomeModeButton = CycleButton.<SkyblockConfig.BiomeMode>builder(
@@ -53,8 +54,13 @@ public class SkyblockConfigScreen extends Screen {
                         Component.translatable("worldpresetpack.biome"),
                         (button, value) -> {
                             SkyblockConfig.biomeMode = value;
-                            SkyblockConfig.generateStructures = (value == SkyblockConfig.BiomeMode.STANDARD);
-                            structuresButton.setValue(SkyblockConfig.generateStructures);
+                            if (value == SkyblockConfig.BiomeMode.VOID) {
+                                SkyblockConfig.generateStructures = false;
+                                structuresButton.setValue(false);
+                                structuresButton.active = false;
+                            } else {
+                                structuresButton.active = true;
+                            }
                             BiomeModeApplier.apply(uiState, value);
                         });
         addRenderableWidget(biomeModeButton);

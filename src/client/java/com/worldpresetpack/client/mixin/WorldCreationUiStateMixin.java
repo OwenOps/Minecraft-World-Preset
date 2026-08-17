@@ -1,6 +1,6 @@
 package com.worldpresetpack.client.mixin;
 
-import com.worldpresetpack.client.MixinBridge;
+import com.worldpresetpack.client.util.BiomeModeApplier;
 import com.worldpresetpack.config.SkyblockConfig;
 import com.worldpresetpack.registry.ModWorldPresets;
 import net.minecraft.client.gui.screens.worldselection.WorldCreationUiState;
@@ -14,12 +14,9 @@ public abstract class WorldCreationUiStateMixin {
 
     @Inject(method = "setWorldType", at = @At("TAIL"))
     private void worldpresetpack$onSetWorldType(WorldCreationUiState.WorldTypeEntry entry, CallbackInfo ci) {
-        boolean isSkyblock = entry.preset().is(ModWorldPresets.SKYBLOCK);
+        if (!entry.preset().is(ModWorldPresets.SKYBLOCK)) return;
 
-        if (isSkyblock) {
-            SkyblockConfig.reset();
-        }
-
-        MixinBridge.notifyPresetChanged((WorldCreationUiState) (Object) this);
+        SkyblockConfig.reset();
+        BiomeModeApplier.apply((WorldCreationUiState) (Object) this, SkyblockConfig.biomeMode);
     }
 }
