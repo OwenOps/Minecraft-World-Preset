@@ -1,12 +1,11 @@
 package com.worldpresetpack.config;
 
 /**
- * Configuration en mémoire pour la création d'un monde Skyblock.
- * Les valeurs sont réinitialisées à chaque session (pas de persistance fichier).
+ * In-memory config for Skyblock world creation.
+ * Reset each session (not persisted to disk).
  */
 public final class SkyblockConfig {
 
-    // Empêcher l'instanciation
     private SkyblockConfig() {}
 
     public enum BiomeMode {
@@ -20,10 +19,10 @@ public final class SkyblockConfig {
     /** Structures in Overworld and Nether. Off by default, like classic Skyblock. */
     public static boolean generateStructures = false;
 
-    /** Mode biome pour l'Overworld */
+    /** Overworld biome mode. */
     public static BiomeMode biomeMode = BiomeMode.STANDARD;
 
-    /** Remet toutes les options à leurs valeurs par défaut. */
+    /** Restore every option to its default. */
     public static void reset() {
         generateStructures = false;
         biomeMode = BiomeMode.STANDARD;

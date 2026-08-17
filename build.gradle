@@ -68,6 +68,22 @@ jar {
     }
 }
 
+def minecraftModsDir = file(project.findProperty("minecraft_mods_dir") ?: "")
+
+tasks.register("copyToMinecraftMods", Copy) {
+    dependsOn tasks.named("jar")
+    from(layout.buildDirectory.dir("libs")) {
+        include "${project.archives_base_name}-${project.version}.jar"
+    }
+    into minecraftModsDir
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    onlyIf { minecraftModsDir.path }
+}
+
+tasks.named("assemble") {
+    finalizedBy copyToMinecraftMods
+}
+
 publishing {
     publications {
         create("mavenJava", MavenPublication) {

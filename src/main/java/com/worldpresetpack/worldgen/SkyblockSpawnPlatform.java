@@ -134,15 +134,14 @@ public final class SkyblockSpawnPlatform {
 
     private static void fillStarterChest(ChestBlockEntity chest) {
         int slot = 0;
-        chest.setItem(slot++, new ItemStack(Items.OAK_LOG, 8));
-        chest.setItem(slot++, new ItemStack(Items.DIRT, 16));
         chest.setItem(slot++, new ItemStack(Items.LAVA_BUCKET, 1));
         chest.setItem(slot++, new ItemStack(Items.WATER_BUCKET, 1));
         chest.setItem(slot++, new ItemStack(Items.ICE, 1));
-        chest.setItem(slot++, new ItemStack(Items.MELON_SEEDS, 10));
-        chest.setItem(slot++, new ItemStack(Items.SUGAR_CANE, 10));
-        chest.setItem(slot++, new ItemStack(Items.BREAD, 2));
+        chest.setItem(slot++, new ItemStack(Items.MELON_SLICE, 1));
+        chest.setItem(slot++, new ItemStack(Items.SUGAR_CANE, 2));
+        chest.setItem(slot++, new ItemStack(Items.BREAD, 1));
         chest.setItem(slot++, new ItemStack(Items.BONE, 1));
-        chest.setItem(slot, new ItemStack(Items.OBSIDIAN, 8));
+        chest.setItem(slot++, new ItemStack(Items.PUMPKIN, 1));
+        chest.setItem(slot, new ItemStack(Items.OBSIDIAN, 10));
     }
 }

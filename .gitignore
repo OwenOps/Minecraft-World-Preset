@@ -35,3 +35,6 @@ remappedSrc/
 
 # Copilot agent configs (not part of the mod)
 .github/agents/
+.cursor/
+.cursorignore
+AGENTS.md

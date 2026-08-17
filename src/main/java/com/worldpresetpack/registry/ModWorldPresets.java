@@ -13,15 +13,14 @@ public final class ModWorldPresets {
 
     private ModWorldPresets() {}
 
-    /** Clé ResourceKey du preset "skyblock" dans le registre WorldPreset. */
+    /** ResourceKey for the skyblock entry in the WorldPreset registry. */
     public static final ResourceKey<WorldPreset> SKYBLOCK = ResourceKey.create(
             Registries.WORLD_PRESET,
             Identifier.fromNamespaceAndPath("worldpresetpack", "skyblock")
     );
 
     /**
-     * Enregistre le Codec de VoidChunkGenerator dans le registre des ChunkGenerators.
-     * Doit être appelé depuis {@code WorldPresetPackMod.onInitialize()}.
+     * Registers the VoidChunkGenerator codec. Call from {@code WorldPresetPackMod.onInitialize()}.
      */
     public static void register() {
         Registry.register(

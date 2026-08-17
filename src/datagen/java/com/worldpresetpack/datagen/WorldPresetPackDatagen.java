@@ -8,7 +8,7 @@ public class WorldPresetPackDatagen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
-        // TODO: Enregistrer les providers de génération de données ici
-        // ex: pack.addProvider(WorldPresetProvider::new);
+        // TODO: Register data generation providers here
+        // e.g. pack.addProvider(WorldPresetProvider::new);
     }
 }
