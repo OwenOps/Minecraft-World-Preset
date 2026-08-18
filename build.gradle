@@ -68,16 +68,16 @@ jar {
     }
 }
 
-def minecraftModsDir = file(project.findProperty("minecraft_mods_dir") ?: "")
+// Automatically resolves %APPDATA%/.minecraft/mods on Windows if property is not defined
+def defaultModsDir = System.getenv("APPDATA") ? "${System.getenv('APPDATA')}/.minecraft/mods" : ""
+def targetModsDir = file(project.findProperty("minecraft_mods_dir") ?: defaultModsDir)
 
 tasks.register("copyToMinecraftMods", Copy) {
-    dependsOn tasks.named("jar")
-    from(layout.buildDirectory.dir("libs")) {
-        include "${project.archives_base_name}-${project.version}.jar"
-    }
-    into minecraftModsDir
+    dependsOn tasks.named("remapJar") // Use remapJar instead of jar so dependencies/mappings are correct
+    from(tasks.named("remapJar"))
+    into targetModsDir
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
-    onlyIf { minecraftModsDir.path }
+    onlyIf { targetModsDir.exists() }
 }
 
 tasks.named("assemble") {
