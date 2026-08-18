@@ -2,7 +2,6 @@ package com.worldpresetpack.advancement;
 
 import com.worldpresetpack.WorldPresetPackMod;
 import com.worldpresetpack.worldgen.SkyblockWorlds;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
@@ -14,12 +13,10 @@ public final class SkyblockAdvancements {
 
     private SkyblockAdvancements() {}
 
-    public static void register() {
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> grantRoot(handler.getPlayer(), server));
-    }
-
     public static void grantRoot(ServerPlayer player, MinecraftServer server) {
-        if (!SkyblockWorlds.isSkyblock(server)) return;
+        if (!SkyblockWorlds.isSkyblock(server)) {
+            return;
+        }
         AdvancementHolder root = server.getAdvancements().get(ROOT);
         if (root != null) {
             player.getAdvancements().award(root, "entered_world");

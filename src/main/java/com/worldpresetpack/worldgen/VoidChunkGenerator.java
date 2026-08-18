@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.worldpresetpack.config.SkyblockConfig;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -32,13 +33,32 @@ import java.util.stream.Stream;
 
 public class VoidChunkGenerator extends ChunkGenerator {
 
+    public enum Kind implements StringRepresentable {
+        SKYBLOCK("skyblock"),
+        ONE_BLOCK("one_block");
+
+        public static final Codec<Kind> CODEC = StringRepresentable.fromEnum(Kind::values);
+
+        private final String id;
+
+        Kind(String id) {
+            this.id = id;
+        }
+
+        @Override
+        public String getSerializedName() {
+            return id;
+        }
+    }
+
     public static final MapCodec<VoidChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     BiomeSource.CODEC.fieldOf("biome_source").forGetter(ChunkGenerator::getBiomeSource),
                     NoiseGeneratorSettings.CODEC.fieldOf("settings").forGetter(g -> g.noiseSettings),
                     Codec.BOOL.fieldOf("generate_structures").orElse(false).forGetter(g -> g.generateStructures),
                     SkyblockConfig.Difficulty.CODEC.optionalFieldOf("difficulty", SkyblockConfig.Difficulty.CLASSIC)
-                            .forGetter(g -> g.difficulty)
+                            .forGetter(g -> g.difficulty),
+                    Kind.CODEC.optionalFieldOf("kind", Kind.SKYBLOCK).forGetter(g -> g.kind)
             ).apply(instance, VoidChunkGenerator::new)
     );
 
@@ -46,15 +66,25 @@ public class VoidChunkGenerator extends ChunkGenerator {
     private final Holder<NoiseGeneratorSettings> noiseSettings;
     private final boolean generateStructures;
     private final SkyblockConfig.Difficulty difficulty;
+    private final Kind kind;
 
     public VoidChunkGenerator(BiomeSource biomeSource,
                                Holder<NoiseGeneratorSettings> noiseSettings,
                                boolean generateStructures,
                                SkyblockConfig.Difficulty difficulty) {
+        this(biomeSource, noiseSettings, generateStructures, difficulty, Kind.SKYBLOCK);
+    }
+
+    public VoidChunkGenerator(BiomeSource biomeSource,
+                               Holder<NoiseGeneratorSettings> noiseSettings,
+                               boolean generateStructures,
+                               SkyblockConfig.Difficulty difficulty,
+                               Kind kind) {
         super(biomeSource);
         this.noiseSettings = noiseSettings;
         this.generateStructures = generateStructures;
         this.difficulty = difficulty;
+        this.kind = kind;
     }
 
     /** Mirrors NoiseBasedChunkGenerator.generatorSettings() so ChunkMap can use real noise. */
@@ -120,7 +150,10 @@ public class VoidChunkGenerator extends ChunkGenerator {
             return ChunkGeneratorStructureState.createForFlat(
                     randomState, seed, getBiomeSource(), Stream.empty());
         }
-        return SkyblockStructureRarity.createState(structureSets, randomState, seed, getBiomeSource());
+        if (kind == Kind.SKYBLOCK) {
+            return SkyblockStructureRarity.createState(structureSets, randomState, seed, getBiomeSource());
+        }
+        return super.createState(structureSets, randomState, seed);
     }
 
     @Override
@@ -145,6 +178,18 @@ public class VoidChunkGenerator extends ChunkGenerator {
 
     public SkyblockConfig.Difficulty difficulty() {
         return difficulty;
+    }
+
+    public Kind kind() {
+        return kind;
+    }
+
+    public boolean isSkyblock() {
+        return kind == Kind.SKYBLOCK;
+    }
+
+    public boolean isOneBlock() {
+        return kind == Kind.ONE_BLOCK;
     }
 }
 

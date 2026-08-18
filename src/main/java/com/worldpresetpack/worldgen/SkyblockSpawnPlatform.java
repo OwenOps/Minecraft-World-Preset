@@ -4,8 +4,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.worldpresetpack.WorldPresetPackMod;
 import com.worldpresetpack.config.SkyblockConfig;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
@@ -15,16 +13,13 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.datafix.DataFixTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
-import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
-import net.minecraft.world.level.storage.LevelData;
 
 public final class SkyblockSpawnPlatform {
 
@@ -52,48 +47,40 @@ public final class SkyblockSpawnPlatform {
         IslandFlag(boolean generated) { this.generated = generated; }
     }
 
-    public static void register() {
-        // Use START_LEVEL_TICK instead of LOAD so the spawn chunks are fully loaded
-        // when we place blocks. Generation runs once per world via IslandFlag.
-        ServerTickEvents.START_LEVEL_TICK.register(new ServerTickEvents.StartLevelTick() {
-            @Override
-            public void onStartTick(ServerLevel level) {
-                if (!level.dimensionTypeRegistration().is(BuiltinDimensionTypes.OVERWORLD)) return;
-                if (!(level.getChunkSource().getGenerator() instanceof VoidChunkGenerator)) return;
+    public static void onLevelTick(ServerLevel level) {
+        if (!VoidWorlds.isSkyblock(level)) {
+            return;
+        }
 
-                IslandFlag flag = level.getDataStorage().computeIfAbsent(IslandFlag.TYPE);
-                if (flag.generated) return;
+        IslandFlag flag = level.getDataStorage().computeIfAbsent(IslandFlag.TYPE);
+        if (flag.generated) {
+            return;
+        }
 
-                flag.generated = true;
-                flag.setDirty();
+        flag.generated = true;
+        flag.setDirty();
 
-                BlockPos origin = islandOrigin(level);
-                generateMainIsland(level, origin, difficultyOf(level));
+        BlockPos origin = islandOrigin(level);
+        generateMainIsland(level, origin, difficultyOf(level));
 
-                // Place player on top of the grass (+1 so they stand on it)
-                BlockPos spawnPos = origin.above();
-                level.setRespawnData(LevelData.RespawnData.of(Level.OVERWORLD, spawnPos, 0f, 0f));
-                teleportPlayersToIsland(level, spawnPos);
+        BlockPos spawnPos = origin.above();
+        VoidSpawns.setOverworldRespawn(level, spawnPos);
+        VoidSpawns.teleportPlayers(level, spawnPos);
 
-                WorldPresetPackMod.LOGGER.info("[WorldPresetPack] Island generated, spawn -> {}", spawnPos);
-            }
-        });
+        WorldPresetPackMod.LOGGER.info("[WorldPresetPack] Island generated, spawn -> {}", spawnPos);
+    }
 
-        // Vanilla spawn adjustment uses empty heightmaps and can drop the player into the void
-        // even after the island exists. Snap them back if they joined on air.
-        ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
-            ServerPlayer player = handler.getPlayer();
-            ServerLevel level = player.level();
-            if (!level.dimensionTypeRegistration().is(BuiltinDimensionTypes.OVERWORLD)) return;
-            if (!(level.getChunkSource().getGenerator() instanceof VoidChunkGenerator)) return;
+    public static void onPlayerJoin(ServerPlayer player) {
+        ServerLevel level = player.level();
+        if (!VoidWorlds.isSkyblock(level)) {
+            return;
+        }
 
-            IslandFlag flag = level.getDataStorage().computeIfAbsent(IslandFlag.TYPE);
-            if (!flag.generated) return;
-            if (!level.getBlockState(player.blockPosition().below()).isAir()) return;
-
-            BlockPos spawnPos = level.getRespawnData().pos();
-            player.teleportTo(spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5);
-        });
+        IslandFlag flag = level.getDataStorage().computeIfAbsent(IslandFlag.TYPE);
+        if (!flag.generated) {
+            return;
+        }
+        VoidSpawns.teleportIfOnAir(player, level.getRespawnData().pos());
     }
 
     /**
@@ -108,20 +95,9 @@ public final class SkyblockSpawnPlatform {
         return new BlockPos(hint.getX(), ISLAND_SURFACE_Y, hint.getZ());
     }
 
-    private static void teleportPlayersToIsland(ServerLevel level, BlockPos spawnPos) {
-        double x = spawnPos.getX() + 0.5;
-        double y = spawnPos.getY();
-        double z = spawnPos.getZ() + 0.5;
-        for (ServerPlayer player : level.players()) {
-            player.teleportTo(x, y, z);
-        }
-    }
-
     private static SkyblockConfig.Difficulty difficultyOf(ServerLevel level) {
-        if (level.getChunkSource().getGenerator() instanceof VoidChunkGenerator generator) {
-            return generator.difficulty();
-        }
-        return SkyblockConfig.Difficulty.CLASSIC;
+        VoidChunkGenerator generator = VoidWorlds.overworldGenerator(level);
+        return generator != null ? generator.difficulty() : SkyblockConfig.Difficulty.CLASSIC;
     }
 
     private static void generateMainIsland(ServerLevel level, BlockPos origin, SkyblockConfig.Difficulty difficulty) {

@@ -1,5 +1,6 @@
 {
   "generator.worldpresetpack.skyblock": "Skyblock",
+  "generator.worldpresetpack.oneblock": "OneBlock",
 
   "worldpresetpack.tab.presets": "Presets",
 
@@ -30,6 +31,23 @@
 
   "worldpresetpack.config.title": "Skyblock Configuration",
   "worldpresetpack.config.button": "⚙ Configure Skyblock",
+
+  "worldpresetpack.oneblock.config.title": "OneBlock Configuration",
+  "worldpresetpack.oneblock.config.button": "⚙ Configure OneBlock",
+  "worldpresetpack.oneblock.pace": "Phase pace",
+  "worldpresetpack.oneblock.pace.slow": "Slow",
+  "worldpresetpack.oneblock.pace.normal": "Normal",
+  "worldpresetpack.oneblock.pace.fast": "Fast",
+  "worldpresetpack.oneblock.pace.slow.desc": "Phases last longer. More of each biome before the next.",
+  "worldpresetpack.oneblock.pace.normal.desc": "Classic OneBlock rhythm. Break the block — a new one appears.",
+  "worldpresetpack.oneblock.pace.fast.desc": "Phases fly by. Chests and mobs still show up on the same cadence.",
+  "worldpresetpack.oneblock.phase.plains": "OneBlock: Plains",
+  "worldpresetpack.oneblock.phase.underground": "OneBlock: Underground",
+  "worldpresetpack.oneblock.phase.winter": "OneBlock: Winter",
+  "worldpresetpack.oneblock.phase.ocean": "OneBlock: Ocean",
+  "worldpresetpack.oneblock.phase.jungle": "OneBlock: Jungle",
+  "worldpresetpack.oneblock.phase.nether": "OneBlock: Nether",
+  "worldpresetpack.oneblock.phase.end": "OneBlock: The End",
 
   "advancement.worldpresetpack.root.title": "World Preset Pack",
   "advancement.worldpresetpack.root.desc": "Start your Skyblock adventure!",
