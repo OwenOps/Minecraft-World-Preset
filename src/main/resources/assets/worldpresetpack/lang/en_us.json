@@ -2,7 +2,12 @@
   "generator.worldpresetpack.skyblock": "Skyblock",
   "generator.worldpresetpack.oneblock": "OneBlock",
 
-  "worldpresetpack.tab.presets": "Presets",
+  "worldpresetpack.presets.button": "World Presets...",
+  "worldpresetpack.presets.button.selected": "World Presets: %s",
+  "worldpresetpack.presets.title": "Choose a World Preset",
+  "worldpresetpack.presets.selected": "%s (selected)",
+  "worldpresetpack.presets.skyblock.desc": "Void Overworld and Nether. Start on a small island with a chest.",
+  "worldpresetpack.presets.oneblock.desc": "One block at spawn. Break it — another appears. Phases from Plains to the End.",
 
   "worldpresetpack.structures": "Structures (Overworld & Nether)",
   "worldpresetpack.structures.on": "ON",
@@ -11,7 +16,6 @@
   "worldpresetpack.biome": "Spawn biome",
   "worldpresetpack.biome.void": "The Void",
   "worldpresetpack.biome.vanilla": "From seed",
-  "worldpresetpack.biome.standard": "Vanilla mix",
 
   "worldpresetpack.difficulty": "Difficulty",
   "worldpresetpack.difficulty.easy": "Easy",
@@ -26,15 +30,13 @@
 
   "worldpresetpack.biome.void.desc": "Every Overworld biome is The Void. Structures cannot generate.",
   "worldpresetpack.biome.vanilla.desc": "Vanilla Overworld biomes. Your island climate follows the world seed.",
-  "worldpresetpack.biome.standard.desc": "Vanilla Overworld biomes. Your island climate follows the world seed.",
   "worldpresetpack.biome.fixed.desc": "The island starts in this biome (weather and mobs). Farther out, the Overworld is still the vanilla mix. The Nether is unchanged.",
 
   "worldpresetpack.config.title": "Skyblock Configuration",
-  "worldpresetpack.config.button": "⚙ Configure Skyblock",
+  "worldpresetpack.config.button": "Configure",
 
   "worldpresetpack.oneblock.config.title": "OneBlock Configuration",
-  "worldpresetpack.oneblock.config.button": "⚙ Configure OneBlock",
-  "worldpresetpack.oneblock.pace": "Phase pace",
+  "worldpresetpack.oneblock.pace": "Phase speed",
   "worldpresetpack.oneblock.pace.slow": "Slow",
   "worldpresetpack.oneblock.pace.normal": "Normal",
   "worldpresetpack.oneblock.pace.fast": "Fast",

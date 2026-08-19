@@ -4,9 +4,12 @@
   "package": "com.worldpresetpack.client.mixin",
   "compatibilityLevel": "JAVA_25",
   "client": [
-  "CreateWorldScreenMixin",
+  "CreateWorldScreenWorldTabMixin",
   "WorldCreationUiStateMixin",
-  "accessor.CreateWorldScreenAccessor"
+  "accessor.CreateWorldScreenAccessor",
+  "accessor.GridLayoutTabAccessor",
+  "accessor.GridLayoutAccessor",
+  "accessor.GridLayoutChildAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
