@@ -1,0 +1,20 @@
+{
+  "parent": "worldpresetpack:root",
+  "display": {
+    "icon": { "id": "minecraft:cobblestone" },
+    "title": { "translate": "advancement.worldpresetpack.cobblestone_start.title" },
+    "description": { "translate": "advancement.worldpresetpack.cobblestone_start.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "get_cobblestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": "minecraft:cobblestone", "count": { "min": 64 } }]
+      }
+    }
+  },
+  "requirements": [["get_cobblestone"]]
+}

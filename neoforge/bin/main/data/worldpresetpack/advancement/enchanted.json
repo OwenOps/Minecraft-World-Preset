@@ -1,0 +1,17 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:enchanted_book" },
+    "title": { "translate": "advancement.worldpresetpack.enchanted.title" },
+    "description": { "translate": "advancement.worldpresetpack.enchanted.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "enchanted": {
+      "trigger": "minecraft:enchanted_item"
+    }
+  },
+  "requirements": [["enchanted"]]
+}

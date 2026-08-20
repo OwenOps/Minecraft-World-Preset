@@ -1,0 +1,29 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:dragon_head" },
+    "title": { "translate": "advancement.worldpresetpack.kill_dragon.title" },
+    "description": { "translate": "advancement.worldpresetpack.kill_dragon.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "kill_dragon": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:ender_dragon"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [["kill_dragon"]],
+  "rewards": { "experience": 50 }
+}

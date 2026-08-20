@@ -1,0 +1,17 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:iron_sword" },
+    "title": { "translate": "advancement.worldpresetpack.first_kill.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_kill.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "kill_mob": {
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [["kill_mob"]]
+}

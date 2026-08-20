@@ -1,0 +1,104 @@
+{
+  "generator.worldpresetpack.skyblock": "Skyblock",
+  "generator.worldpresetpack.oneblock": "OneBlock",
+
+  "worldpresetpack.presets.button": "World Presets...",
+  "worldpresetpack.presets.button.selected": "World Presets: %s",
+  "worldpresetpack.presets.title": "Choose a World Preset",
+  "worldpresetpack.presets.selected": "%s (selected)",
+  "worldpresetpack.presets.skyblock.desc": "Void Overworld and Nether. Start on a small island with a chest.",
+  "worldpresetpack.presets.oneblock.desc": "One block at spawn. Break it — another appears. Phases from Plains to the End.",
+
+  "worldpresetpack.structures": "Structures (Overworld & Nether)",
+  "worldpresetpack.structures.on": "ON",
+  "worldpresetpack.structures.off": "OFF",
+
+  "worldpresetpack.biome": "Spawn biome",
+  "worldpresetpack.biome.void": "The Void",
+  "worldpresetpack.biome.vanilla": "From seed",
+
+  "worldpresetpack.difficulty": "Difficulty",
+  "worldpresetpack.difficulty.easy": "Easy",
+  "worldpresetpack.difficulty.classic": "Classic",
+  "worldpresetpack.difficulty.hard": "Hard",
+  "worldpresetpack.difficulty.easy.desc": "A larger island and a bit more starter loot. Still Skyblock — no free iron or cobble.",
+  "worldpresetpack.difficulty.classic.desc": "The original island and chest. The intended Skyblock start.",
+  "worldpresetpack.difficulty.hard.desc": "A tight island and a sparse chest: buckets, ice, one sugar cane, and obsidian.",
+
+  "worldpresetpack.structures.on.desc": "Overworld and Nether structures spawn, farther apart than vanilla. The End is unchanged.",
+  "worldpresetpack.structures.off.desc": "No Overworld or Nether structures. Villages, fortresses, and loot must wait for traders — or stay locked.",
+
+  "worldpresetpack.biome.void.desc": "Every Overworld biome is The Void. Structures cannot generate.",
+  "worldpresetpack.biome.vanilla.desc": "Vanilla Overworld biomes. Your island climate follows the world seed.",
+  "worldpresetpack.biome.fixed.desc": "The island starts in this biome (weather and mobs). Farther out, the Overworld is still the vanilla mix. The Nether is unchanged.",
+
+  "worldpresetpack.config.title": "Skyblock Configuration",
+  "worldpresetpack.config.button": "Configure",
+
+  "worldpresetpack.oneblock.config.title": "OneBlock Configuration",
+  "worldpresetpack.oneblock.pace": "Phase speed",
+  "worldpresetpack.oneblock.pace.slow": "Slow",
+  "worldpresetpack.oneblock.pace.normal": "Normal",
+  "worldpresetpack.oneblock.pace.fast": "Fast",
+  "worldpresetpack.oneblock.pace.slow.desc": "Phases last longer. More of each biome before the next.",
+  "worldpresetpack.oneblock.pace.normal.desc": "Classic OneBlock rhythm. Break the block — a new one appears.",
+  "worldpresetpack.oneblock.pace.fast.desc": "Phases fly by. Chests and mobs still show up on the same cadence.",
+  "worldpresetpack.oneblock.phase.plains": "OneBlock: Plains",
+  "worldpresetpack.oneblock.phase.underground": "OneBlock: Underground",
+  "worldpresetpack.oneblock.phase.winter": "OneBlock: Winter",
+  "worldpresetpack.oneblock.phase.ocean": "OneBlock: Ocean",
+  "worldpresetpack.oneblock.phase.jungle": "OneBlock: Jungle",
+  "worldpresetpack.oneblock.phase.nether": "OneBlock: Nether",
+  "worldpresetpack.oneblock.phase.end": "OneBlock: The End",
+
+  "advancement.worldpresetpack.root.title": "World Preset Pack",
+  "advancement.worldpresetpack.root.desc": "Start your Skyblock adventure!",
+
+  "advancement.worldpresetpack.cobblestone_start.title": "Stone Age... Again",
+  "advancement.worldpresetpack.cobblestone_start.desc": "Collect 64 cobblestone using your generator",
+
+  "advancement.worldpresetpack.first_iron.title": "First Iron",
+  "advancement.worldpresetpack.first_iron.desc": "Smelt your first iron ingot",
+
+  "advancement.worldpresetpack.first_farm.title": "Sky Farmer",
+  "advancement.worldpresetpack.first_farm.desc": "Harvest 8 wheat from your island farm",
+
+  "advancement.worldpresetpack.first_kill.title": "Sky Warrior",
+  "advancement.worldpresetpack.first_kill.desc": "Kill your first mob — don't fall off!",
+
+  "advancement.worldpresetpack.enter_nether.title": "Beyond the Void",
+  "advancement.worldpresetpack.enter_nether.desc": "Enter the Nether with your obsidian and flint & steel",
+
+  "advancement.worldpresetpack.kill_blaze.title": "Blaze It",
+  "advancement.worldpresetpack.kill_blaze.desc": "Kill a Blaze and collect its rod",
+
+  "advancement.worldpresetpack.first_diamond.title": "Sky's the Limit",
+  "advancement.worldpresetpack.first_diamond.desc": "Obtain a diamond — the hard way",
+
+  "advancement.worldpresetpack.full_beacon.title": "Sky Beacon",
+  "advancement.worldpresetpack.full_beacon.desc": "Build a full level-4 beacon on your island",
+
+  "advancement.worldpresetpack.first_bed.title": "A Place to Rest",
+  "advancement.worldpresetpack.first_bed.desc": "Sleep in a bed so the void does not reset your spawn",
+
+  "advancement.worldpresetpack.first_trade.title": "Let's Make a Deal",
+  "advancement.worldpresetpack.first_trade.desc": "Trade with a villager or a wandering trader",
+
+  "advancement.worldpresetpack.first_gold.title": "Piglin Business",
+  "advancement.worldpresetpack.first_gold.desc": "Obtain a gold ingot in the Nether",
+
+  "advancement.worldpresetpack.enchanted.title": "Magic in the Sky",
+  "advancement.worldpresetpack.enchanted.desc": "Enchant an item at an enchanting table",
+
+  "advancement.worldpresetpack.enter_end.title": "The Last Void",
+  "advancement.worldpresetpack.enter_end.desc": "Find the stronghold and enter the End",
+
+  "advancement.worldpresetpack.kill_dragon.title": "Free Fall",
+  "advancement.worldpresetpack.kill_dragon.desc": "Kill the Ender Dragon",
+
+  "advancement.worldpresetpack.elytra.title": "Wings of the Void",
+  "advancement.worldpresetpack.elytra.desc": "Find elytra in an End city ship",
+
+  "advancements.worldpresetpack.root.title": "World Preset Pack",
+  "advancements.worldpresetpack.root.description": "Start your Skyblock adventure!"
+}

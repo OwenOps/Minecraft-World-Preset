@@ -1,0 +1,17 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:emerald" },
+    "title": { "translate": "advancement.worldpresetpack.first_trade.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_trade.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "trade": {
+      "trigger": "minecraft:villager_trade"
+    }
+  },
+  "requirements": [["trade"]]
+}

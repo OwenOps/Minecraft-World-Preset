@@ -1,0 +1,20 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:gold_ingot" },
+    "title": { "translate": "advancement.worldpresetpack.first_gold.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_gold.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "get_gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": "minecraft:gold_ingot" }]
+      }
+    }
+  },
+  "requirements": [["get_gold"]]
+}
