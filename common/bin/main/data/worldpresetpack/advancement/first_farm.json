@@ -1,0 +1,20 @@
+{
+  "parent": "worldpresetpack:cobblestone_start",
+  "display": {
+    "icon": { "id": "minecraft:wheat" },
+    "title": { "translate": "advancement.worldpresetpack.first_farm.title" },
+    "description": { "translate": "advancement.worldpresetpack.first_farm.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "harvest_wheat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [{ "items": "minecraft:wheat", "count": { "min": 8 } }]
+      }
+    }
+  },
+  "requirements": [["harvest_wheat"]]
+}
